@@ -10,12 +10,12 @@ button.addEventListener("click", function (event) {
         li.classList.add("style");
         const recycleBinLogo = document.createElement("img");
         const tick = document.createElement("img");
-        recycleBinLogo.src = "recycle bin.webp";
-        tick.src = "tick.webp";
+        recycleBinLogo.src = "assets/images/recycle bin.webp";
+        tick.src = "assets/images/tick.webp";
         tick.width = 25;
         recycleBinLogo.width = 25;
-        recycleBinLogo.classList.add("recycle-img");
-        recycleBinLogo.classList.add("recycle-img");
+        recycleBinLogo.classList.add("recycle-tick-img");
+        recycleBinLogo.classList.add("recycle-tick-img");
         li.append(recycleBinLogo, tick);
         recycleBinLogo.addEventListener("click", function () {
             ul.removeChild(li);
