@@ -52,11 +52,17 @@ body {
     text-align: left;
     color: #847f81;
     background-color: #262e32;
-    max-width: 200px;
+    width: fit-content;
     list-style: none;
     border-radius: 14px;
     padding: 10px;
     margin: 10px auto;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.recycle-img {
+    margin-left: auto;
+    position: relative;
+    top: 4px;
 }
