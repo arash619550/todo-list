@@ -9,12 +9,20 @@ button.addEventListener("click", function (event) {
         li.innerText = input.value;
         li.classList.add("style");
         const recycleBinLogo = document.createElement("img");
+        const tick = document.createElement("img");
         recycleBinLogo.src = "recycle bin.webp";
+        tick.src = "tick.webp";
+        tick.width = 25;
         recycleBinLogo.width = 25;
         recycleBinLogo.classList.add("recycle-img");
-        li.appendChild(recycleBinLogo);
+        recycleBinLogo.classList.add("recycle-img");
+        li.append(recycleBinLogo, tick);
         recycleBinLogo.addEventListener("click", function () {
             ul.removeChild(li);
+        });
+        tick.addEventListener("click", function () {
+            li.style.color = "green";
+            li.style.textDecoration = "line-through";
         });
         ul.appendChild(li);
         input.value = "";

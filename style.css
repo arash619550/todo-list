@@ -59,6 +59,7 @@ body {
     margin: 10px auto;
     text-overflow: ellipsis;
     overflow: hidden;
+    max-width: 50%;
 }
 
 .recycle-img {
