@@ -49,6 +49,7 @@ body {
 }
 
 .style {
+
     text-align: left;
     color: #847f81;
     background-color: #262e32;
@@ -66,4 +67,8 @@ body {
     margin-left: auto;
     position: relative;
     top: 4px;
+}
+.done{
+    text-decoration: line-through;
+    color: green;
 }

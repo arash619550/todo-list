@@ -1,39 +1,37 @@
 const input = document.querySelector("input");
-const button = document.querySelector("button");
+const button = document.querySelector(".button");
 const ul = document.querySelector(".task-list");
-const tasks = [];
+let tasks = [];
 
-button.addEventListener("click", function (event) {
+button.addEventListener("click", event => {
     event.preventDefault();
-    if (input.value !== "") {
-        const task = { task: input.value, done: false };
-        tasks.push(task);
-        const li = document.createElement("li");
-        li.innerText = input.value;
-        li.classList.add("style");
-        const recycleBinLogo = document.createElement("img");
-        recycleBinLogo.src = "assets/images/recycle bin.webp";
-        recycleBinLogo.width = 25;
-        recycleBinLogo.classList.add("recycle-tick-img");
-        const tick = document.createElement("img");
-        tick.src = "assets/images/tick.webp";
-        tick.width = 25;
-        tick.classList.add("recycle-tick-img");
-        li.append(recycleBinLogo, tick);
-        ul.appendChild(li);
-        recycleBinLogo.addEventListener("click", function () {
-            ul.removeChild(li);
-            const index = tasks.indexOf(task);
-            if (index !== -1) {
-                tasks.splice(index, 1);
-            }
-            console.log(tasks);
-        });
-        tick.addEventListener("click", function () {
-            li.style.color = "green";
-            li.style.textDecoration = "line-through";
-            task.done = true;
-        });
+    if (input.value != "") {
+        const objTask = { task: input.value, done: false };
+        tasks.push(objTask);
         input.value = "";
+        render();
     }
-});
+})
+
+const render = () => {
+    ul.innerHTML = tasks.map(function (item, index) {
+        return `<li class="style ${item.done ? "done" : ""}" dir="rtl" data-index=${index}>
+            <img src="assets/images/tick.webp" width="25px" onclick="tickFunction(${index})">
+            <img src="assets/images/recycle bin.webp" width="25px" onclick="deleteFunction(${index})">
+            ${item.task}
+        </li>`;
+    }).join("");
+}
+
+
+function tickFunction(index) {
+    tasks[index].done = !tasks[index].done;;
+    const li = ul.querySelector(`li[data-index="${index}"]`);
+    render();
+}
+
+const deleteFunction = index => {
+    tasks.splice(index, 1);
+    render();
+}
+
